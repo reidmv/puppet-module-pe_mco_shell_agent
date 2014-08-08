@@ -8,6 +8,7 @@ class pe_mco_shell_agent (
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
+    notify => Service['pe-mcollective'],
   }
 
   file { "${base}/agent/shell":
