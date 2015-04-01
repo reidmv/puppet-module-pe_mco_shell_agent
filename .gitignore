@@ -1,2 +1,7 @@
-Gemfile.lock
 ext/packaging
+spec/fixtures/
+.vagrant/
+.bundle/
+.idea/
+pkg/
+Gemfile.lock
