@@ -1,0 +1,11 @@
+{
+  "name": "reidmv-pe_mco_shell_agent",
+  "version": "0.1.0",
+  "author": "Reid Vandewiele",
+  "license": "Apache-2.0",
+  "summary": "Puppet deployment wrapper for the mco shell agent",
+  "source": "https://github.com/reidmv/puppet-module-pe_mco_shell_agent",
+  "project_page": "https://github.com/reidmv/puppet-module-pe_mco_shell_agent",
+  "tags": ["mcollective", "shell", "agent"],
+  "dependencies": [ ]
+}
