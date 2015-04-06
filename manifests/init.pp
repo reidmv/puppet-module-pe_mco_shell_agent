@@ -8,8 +8,14 @@ class pe_mco_shell_agent (
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
-    notify => Service['pe-mcollective'],
+    notify => Anchor['mco_shell_notify'],
   }
+
+  # This anchor conditionally notifies the pe-mcollective service, but only if
+  # it exists. It is implemented this way to avoid a hard-dependency on
+  # Service['pe-mcollective'] being defined. If the service doesn't exist in
+  # the catalog this is a no-op.
+  anchor { 'mco_shell_notify': } ~> Service <| title == 'pe-mcollective' |>
 
   file { "${base}/agent/shell":
     ensure => directory,
