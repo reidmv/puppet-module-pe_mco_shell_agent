@@ -5,3 +5,4 @@ spec/fixtures/
 .idea/
 pkg/
 Gemfile.lock
+log/
