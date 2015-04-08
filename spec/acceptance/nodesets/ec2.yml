@@ -1,0 +1,30 @@
+HOSTS:
+  centos-6-x86-64-master:
+    roles:
+      - master
+      - dashboard
+      - database
+    vmname: centos-6-x86-64-west
+    platform: el-6-x86_64
+    amisize: c3.large
+    hypervisor: ec2
+    snapshot: pe
+    subnet_id: subnet-af8532d8
+    vpc_id: vpc-fc3e8799
+  centos-6-x86-64-agent:
+    roles:
+      - agent
+      - frictionless
+    vmname: centos-6-x86-64-west
+    platform: el-6-x86_64
+    amisize: m1.small
+    hypervisor: ec2
+    snapshot: pe
+    subnet_id: subnet-af8532d8
+    vpc_id: vpc-fc3e8799
+CONFIG:
+  type: pe
+  pe_dir: https://s3.amazonaws.com/pe-builds/released/3.7.2
+  pe_ver: 3.7.2
+  disable_iptables: true
+  ec2_yaml: spec/acceptance/config/ec2_images.yml

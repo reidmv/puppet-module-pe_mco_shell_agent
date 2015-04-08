@@ -1,0 +1,20 @@
+AMI:
+  centos-6-x86-64-west:
+    :image:
+      :pe: ami-a9de9c99
+    :region: us-west-2
+
+  centos-7-x86-64-west:
+    :image:
+      :pe: ami-c7d092f7
+    :region: us-west-2
+
+  ubuntu-1204-amd64-west:
+    :image:
+      :pe: ami-13471c23
+    :region: us-west-2
+
+  ubuntu-1404-amd64-west:
+    :image:
+      :pe: ami-1b471c2b
+    :region: us-west-2
