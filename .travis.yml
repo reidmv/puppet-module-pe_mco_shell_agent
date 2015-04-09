@@ -20,7 +20,7 @@ before_install:
   - './spec/acceptance/bin/ci-setup.sh'
 
 script:
-  - '[ "${TRAVIS_SECURE_ENV_VARS}" = "true" ] && travis_wait bundle exec rspec spec/acceptance'
+  - '[ "${TRAVIS_SECURE_ENV_VARS}" = "true" ] && ./spec/acceptance/bin/ci-run.sh bundle exec rspec spec/acceptance'
 
 deploy:
   provider: puppetforge
