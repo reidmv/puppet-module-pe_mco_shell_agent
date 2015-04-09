@@ -6,7 +6,7 @@ rvm:
 
 env:
   global:
-    - BEAKER_project="CI for puppet module reidmv/pe_mco_shell_agent"
+    - BEAKER_project="reidmv/pe_mco_shell_agent"
     - BEAKER_department="tse"
     - BEAKER_destroy="yes"
     - BEAKER_set="ec2"

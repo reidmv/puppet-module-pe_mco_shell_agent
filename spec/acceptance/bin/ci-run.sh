@@ -9,13 +9,8 @@ sleep_interval=120
 tick_interval=5
 tick_elapsed=0
 
-# Execute given arguments as a background command
-"$@" &
-jobpid=$!
-
-# So long as the background job is still running, periodically print a
-# heartbeat to stdout
-while jobs -l | grep "$jobpid Running" >/dev/null 2>&1; do
+# Start printing a heartbeat to stdout as a background command
+while true; do
   sleep $tick_interval
   tick_elapsed=$(($tick_elapsed+$tick_interval))
   if [ "$tick_elapsed" -ge "$sleep_interval" ]; then
@@ -28,5 +23,17 @@ while jobs -l | grep "$jobpid Running" >/dev/null 2>&1; do
     fi
     tick_elapsed=0
   fi
-done
+done &
+heartbeat_pid=$!
 
+# Set a trap to kill the background heartbeat when the script exits (in case
+# something goes wrong)
+trap "kill $heartbeat_pid" 0
+
+# Execute given arguments as a command
+"$@"
+job_exit_code=$?
+
+# kill the heartbeat and return the job exit code
+kill $heartbeat_pid
+exit $job_exit_code
