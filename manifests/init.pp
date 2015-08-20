@@ -7,7 +7,7 @@ class pe_mco_shell_agent (
 
   $base = $::kernel ? {
     'windows' => $libdir,
-    'default' => "${libdir}/mcollective",
+    default   => "${libdir}/mcollective",
   }
 
   File {
