@@ -1,14 +1,22 @@
 class pe_mco_shell_agent (
-  $libdir = '/opt/puppet/libexec/mcollective',
-) {
-  $base = "${libdir}/mcollective"
+  $libdir = $pe_mco_shell_agent::libdir,
+  $owner  = $pe_mco_shell_agent::owner,
+  $group  = $pe_mco_shell_agent::group,
+  $mode   = $pe_mco_shell_agent::mode,
+) inherits pe_mco_shell_agent::params {
+
+  $base = $::kernel ? {
+    'windows' => $libdir,
+    'default' => "${libdir}/mcollective",
+  }
 
   File {
-    ensure => present,
-    owner  => 'root',
-    group  => 'root',
-    mode   => '0644',
-    notify => Anchor['mco_shell_notify'],
+    ensure             => present,
+    owner              => $owner,
+    group              => $group,
+    mode               => $mode,
+    source_permissions => 'ignore',
+    notify             => Anchor['mco_shell_notify'],
   }
 
   # This anchor conditionally notifies the pe-mcollective service, but only if
