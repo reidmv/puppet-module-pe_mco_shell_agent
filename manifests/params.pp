@@ -5,7 +5,7 @@ class pe_mco_shell_agent::params {
       $group   = undef
       $mode    = undef
       $service = undef
-      $libdir  = 'C:/ProgramData/PuppetLabs/mcollective/etc/plugins/mcollective'
+      $libdir  = 'C:/ProgramData/PuppetLabs/mcollective/etc/plugins'
     }
     'Linux' : {
       $owner  = 'root'

@@ -1,9 +1,9 @@
 class pe_mco_shell_agent (
-  $libdir = $pe_mco_shell_agent::libdir,
-  $owner  = $pe_mco_shell_agent::owner,
-  $group  = $pe_mco_shell_agent::group,
-  $mode   = $pe_mco_shell_agent::mode,
-  $service   = $pe_mco_shell_agent::service,
+  $libdir  = $pe_mco_shell_agent::libdir,
+  $owner   = $pe_mco_shell_agent::owner,
+  $group   = $pe_mco_shell_agent::group,
+  $mode    = $pe_mco_shell_agent::mode,
+  $service = $pe_mco_shell_agent::service,
 ) inherits pe_mco_shell_agent::params {
   $base = "${libdir}/mcollective"
 
