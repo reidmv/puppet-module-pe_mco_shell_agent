@@ -1,5 +1,6 @@
 class pe_mco_shell_agent::params {
   case $::kernel {
+
     'windows' : {
       $owner   = undef
       $group   = undef
@@ -7,6 +8,7 @@ class pe_mco_shell_agent::params {
       $service = undef
       $libdir  = 'C:/ProgramData/PuppetLabs/mcollective/plugins'
     }
+
     'Linux' : {
       $owner  = 'root'
       $group  = 'root'
@@ -18,6 +20,10 @@ class pe_mco_shell_agent::params {
         $service = 'mcollective'
         $libdir  = '/opt/puppetlabs/mcollective/plugins'
       }
+    }
+
+    default : {
+      fail("The ${::kernel} kernel is not supported by the ${module_name} module")
     }
   }
 
