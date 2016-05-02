@@ -7,5 +7,7 @@
   "source": "https://github.com/reidmv/puppet-module-pe_mco_shell_agent",
   "project_page": "https://github.com/reidmv/puppet-module-pe_mco_shell_agent",
   "tags": ["mcollective", "shell", "agent"],
-  "dependencies": [ ]
+  "dependencies": [
+    { "name": "puppetlabs/stdlib", "version_requirement": ">= 3.2.0 < 5.0.0" }
+  ]
 }
