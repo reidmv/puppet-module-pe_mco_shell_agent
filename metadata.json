@@ -1,6 +1,6 @@
 {
   "name": "reidmv-pe_mco_shell_agent",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "author": "Reid Vandewiele",
   "license": "Apache-2.0",
   "summary": "Puppet deployment wrapper for the mco shell agent",
