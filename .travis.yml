@@ -1,26 +1,9 @@
 ---
 language: "ruby"
 
-rvm:
-  - "1.9.3"
-
-env:
-  global:
-    - BEAKER_project="reidmv/pe_mco_shell_agent"
-    - BEAKER_department="tse"
-    - BEAKER_destroy="yes"
-    - BEAKER_set="ec2"
-    - BEAKER_CREATED_BY="reid"
-    - BEAKER_BUILD_URL="https://travis-ci.org/${TRAVIS_REPO_SLUG}/builds/${TRAVIS_BUILD_ID}"
-    # Secret keys should be configured in the Travis-CI project settings:
-    # - AWS_ACCESS_KEY_ID=<secret>
-    # - AWS_SECRET_ACCESS_KEY=<secret>
-
-before_install:
-  - './spec/acceptance/bin/ci-setup.sh'
-
-script:
-  - '[ "${TRAVIS_SECURE_ENV_VARS}" = "true" ] && ./spec/acceptance/bin/ci-run.sh bundle exec rspec spec/acceptance'
+# Currently only using Travis CI for automatic Forge deployment. No real
+# test is run. This is specified here in order to override the default test.
+script: '/bin/true'
 
 deploy:
   provider: puppetforge
