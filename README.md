@@ -25,13 +25,42 @@ Installs the [mcollective-shell-agent](https://github.com/puppetlabs/mcollective
 
 ### Configuration
 
-* Easiest setup is adding class `pe_mco_shell_agent` to the `PE MCollective` node group
+* Easiest setup is adding class `pe_mco_shell_agent` to the `PE MCollective` node group.  The `install_app` and `install_agent` parameters can be set to either install or uninstall/not install the application and agent, respectively.
 
-`include pe_mco_shell_agent`
+* If setting up via code the following can be done:
+
+To setup the MCO agent onto nodes the defaults can be used:
+
+```puppet
+include pe_mco_shell_agent
+```
+or
+```puppet
+class { 'pe_mco_shell_agent': }
+```
+
+To setup the MCO application on a node that has a MCO client present use:
+
+```puppet
+class { 'pe_mco_shell_agent':
+  install_app => true,
+}
+```
+
+If the MCO agent is not required on the MCO client node this can be removed/not installed by:
+
+```puppet
+class { 'pe_mco_shell_agent':
+  install_app   => true,
+  install_agent => false,
+}
+```
 
 ## Usage
 
 For full documentation of the plugin see https://github.com/puppetlabs/mcollective-shell-agent
+
+
 
 Here's some examples:
 
