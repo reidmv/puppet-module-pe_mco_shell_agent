@@ -1,6 +1,6 @@
 {
   "name": "reidmv-pe_mco_shell_agent",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "author": "Reid Vandewiele",
   "license": "Apache-2.0",
   "summary": "Puppet deployment wrapper for the mco shell agent",
@@ -9,5 +9,14 @@
   "tags": ["mcollective", "shell", "agent"],
   "dependencies": [
     { "name": "puppetlabs/stdlib", "version_requirement": ">= 3.2.0 < 5.0.0" }
+  ],
+  "operatingsystem_support": [
+    { "operatingsystem": "RedHat"  },
+    { "operatingsystem": "Windows" },
+    { "operatingsystem": "Debian"  },
+    { "operatingsystem": "Ubuntu"  },
+    { "operatingsystem": "Solaris" },
+    { "operatingsystem": "SLES"    },
+    { "operatingsystem": "AIX"     }
   ]
 }
